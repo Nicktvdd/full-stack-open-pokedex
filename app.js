@@ -1,5 +1,6 @@
-import express, { static as static_ } from 'express'
-import process from 'process'
+const express = require('express')
+const static_ = require('express').static
+const process = require('process')
 
 const app = express()
 
