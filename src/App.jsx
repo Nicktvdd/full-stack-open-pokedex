@@ -42,4 +42,8 @@ const App = () => {
   )
 }
 
+App.get('/version', (req, res) => {
+  res.send('1') // change this string to ensure a new version deployed
+})
+
 export default App
