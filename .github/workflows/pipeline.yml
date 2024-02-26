@@ -19,4 +19,10 @@ jobs:
       - name: Check style
         run: npm install eslint --save-dev
          npx eslint --init
-         npm run eslint 
+         npm run eslint
+
+      - name: Build
+        run: npm run build
+        
+      - name: Test
+        run: npm test
