@@ -17,4 +17,4 @@ jobs:
           echo "The time is $(date)."
       - name: List the files in the repository
         run: |
-          ls -R
+          ls
