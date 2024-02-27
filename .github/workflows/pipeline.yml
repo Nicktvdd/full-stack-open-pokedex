@@ -46,18 +46,6 @@ jobs:
    runs-on: ubuntu-20.04
    steps:
     - uses: actions/checkout@v4
-    - name: github context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo ${{ toJson(github) }}
-    - name: commits
-      env:
-        COMMITS: ${{ github.event.commits }}
-      run: echo ${{ github.event.commits }}
-    - name: commit message
-      env:
-        COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
-      run: echo ${{ github.event.commits[0].message }}
     - if: ${{ github.event_name == 'push' && !contains(github.event.commits[0].message, '#skip')}}
       name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.67.0
