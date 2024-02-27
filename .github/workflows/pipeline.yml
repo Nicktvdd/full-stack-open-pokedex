@@ -52,3 +52,20 @@ jobs:
       env: 
         DEFAULT_BUMP: patch
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - if: ${{ success() }}
+      name: Build succeeded
+      uses: rjstone/discord-webhook-notify@v1.0.4
+      with:
+       severity: info
+       details: Build succeeded
+       webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+       username: "Nicktvdd"
+    - if: ${{ failure() }}
+      name: Build failed
+      uses: rjstone/discord-webhook-notify@v1.0.4
+      with:
+       severity: error
+       details: Build failed
+       webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+       username: "Nicktvdd"
+    
